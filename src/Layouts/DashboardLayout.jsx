@@ -14,7 +14,6 @@ const { Sider, Content } = AntLayout;
 const menuItems = [
   { key: '/', icon: <HomeOutlined />, text: 'Dashboard' },
   { key: '/candidates', icon: <UserOutlined />, text: 'Candidates' },
-  { key: '/vote', icon: <LikeOutlined />, text: 'Vote' },
 ];
 
 export default function DashboardLayout() {
@@ -23,7 +22,9 @@ export default function DashboardLayout() {
   return (
     <AntLayout style={{ height: '100vh' }}>
       <Sider width={200} theme="dark" style={{ position: 'fixed', height: '100vh', left: 0 }}>
-        <div style={{ height: '32px', margin: '16px', background: 'rgba(255, 255, 255, 0.3)' }} />
+        <div className="p-4">
+          <h2 className="text-2xl text-white font-semibold bg-gray-900">Admin Panel</h2>
+        </div>
         <Menu theme="dark" mode="inline" selectedKeys={[location.pathname]}>
           {menuItems.map((item) => (
             <Menu.Item key={item.key} icon={item.icon}>

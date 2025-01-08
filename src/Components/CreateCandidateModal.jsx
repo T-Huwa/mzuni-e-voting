@@ -3,21 +3,19 @@ import { IconX } from '@tabler/icons-react';
 
 export default function CreateCandidateModal({ isOpen, onClose, onAddCandidate }) {
   const [name, setName] = useState('');
-  const [skills, setSkills] = useState('');
-  const [category, setCategory] = useState('');
+  const [position, setPosition] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newCandidate = {
       id: Date.now(),
       name,
-      skills: skills.split(',').map(skill => skill.trim()),
-      category
+      position,
+      votes: 0, // Initialize with 0 votes
     };
     onAddCandidate(newCandidate);
     setName('');
-    setSkills('');
-    setCategory('');
+    setPosition('');
   };
 
   if (!isOpen) return null;
@@ -42,37 +40,26 @@ export default function CreateCandidateModal({ isOpen, onClose, onAddCandidate }
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="skills" className="block text-gray-700 text-sm font-bold mb-2">
-              Skills (comma-separated)
-            </label>
-            <input
-              type="text"
-              id="skills"
-              value={skills}
-              onChange={(e) => setSkills(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="Enter candidate's name"
               required
             />
           </div>
           <div className="mb-6">
-            <label htmlFor="category" className="block text-gray-700 text-sm font-bold mb-2">
-              Category
+            <label htmlFor="position" className="block text-gray-700 text-sm font-bold mb-2">
+              Position
             </label>
             <select
-              id="category"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              id="position"
+              value={position}
+              onChange={(e) => setPosition(e.target.value)}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               required
             >
-              <option value="">Select a category</option>
-              <option value="Software Development">Software Development</option>
-              <option value="Data Science">Data Science</option>
-              <option value="Design">Design</option>
+              <option value="">Select a position</option>
+              <option value="President">President</option>
+              <option value="Vice President">Vice President</option>
+              <option value="Secretary">Secretary</option>
+              <option value="Treasurer">Treasurer</option>
             </select>
           </div>
           <div className="flex items-center justify-end">
@@ -88,4 +75,3 @@ export default function CreateCandidateModal({ isOpen, onClose, onAddCandidate }
     </div>
   );
 }
-

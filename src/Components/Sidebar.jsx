@@ -5,8 +5,6 @@ import { IconHome, IconUsers, IconChecks as IconVote, IconSettings, IconLogout }
 const menuItems = [
   { icon: IconHome, text: 'Dashboard', link: '/' },
   { icon: IconUsers, text: 'Candidates', link: '/candidates' },
-  { icon: IconVote, text: 'Vote', link: '/vote' },
-  { icon: IconSettings, text: 'Settings', link: '/settings' },
 ];
 
 export default function Sidebar() {
@@ -14,8 +12,9 @@ export default function Sidebar() {
 
   return (
     <div className="bg-gray-800 text-white w-64 min-h-screen flex flex-col">
+      Admin
       <div className="p-4">
-        <h2 className="text-2xl text-white font-semibold">Admin Panel</h2>
+        <h2 className="text-2xl text-white font-semibold bg-gray-900">Admin Panel</h2>
       </div>
       <nav className="flex-1">
         <ul>

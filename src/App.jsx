@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DashboardLayout from './Layouts/DashboardLayout';
-import Candidates from './Pages/Candidates';
+import Candidates from './Pages/Admin/Candidates';
 import VoterLogin from './Pages/VoterLogin';
 import StudentUnionVoting from './Pages/StudentUnionVoting';
 
